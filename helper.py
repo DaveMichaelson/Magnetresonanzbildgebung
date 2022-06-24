@@ -50,4 +50,5 @@ def visualize_images(images):
     plt.show()
 
 def imshow(image):
+    fig, axs = plt.subplots()
     plt.imshow(np.abs(image))

@@ -48,3 +48,6 @@ def visualize_images(images):
     for i in range(images.shape[2]):
         axs[i].imshow(np.abs(images[:, :, i]))
     plt.show()
+
+def imshow(image):
+    plt.imshow(np.abs(image))

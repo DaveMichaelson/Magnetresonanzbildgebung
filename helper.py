@@ -52,3 +52,10 @@ def visualize_images(images):
 def imshow(image):
     fig, axs = plt.subplots()
     plt.imshow(np.abs(image), cmap='gray')
+
+def compute_spokes(n_samples_per_spoke, n_spokes):
+    golden_angle = 2 * np.pi * (-111.25) / 360
+    angles = np.arange(n_spokes) * golden_angle % (2 * np.pi)
+    kx_ranges = np.array([-128 * np.cos(angles), 127 * np.cos(angles)])
+    ky_ranges = np.array([-128 * np.sin(angles), 127 * np.sin(angles)])
+    return np.reshape((np.linspace(kx_ranges[0,:], kx_ranges[1,:], num=n_samples_per_spoke), np.linspace(ky_ranges[0,:], ky_ranges[1,:], num=n_samples_per_spoke)), (2, n_samples_per_spoke, n_spokes))
